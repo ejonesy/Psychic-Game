@@ -8,32 +8,53 @@ var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.l
 document.onkeyup = function(event) {
 
     var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-
+    console.log(computerGuess);
     var userGuess = event.key;
+    console.log(userGuess);
+    console.log(remainingGuesses);
 
-    return("User guess: " + userGuess);
-    return("Computer: " + computerGuess);
+    //document.write("User guess: " + userGuess);
+    //document.write("Computer: " + computerGuess);
 
     if (userGuess === computerGuess) {
-        return("Remaining guesses: ", remainingGuesses--);
+        remainingGuesses--;
+        document.getElementById("myGuess").innerHTML = "My Guess: " + userGuess;
+        document.getElementById("answer").innerHTML = "Answer: " + computerGuess;
+        document.getElementById("guesses remaining").innerHTML = "Remaining guesses: " + remainingGuesses;
+        document.getElementById("guesses").innerHTML = "Guesses: " + guesses++;
+        document.getElementById("wins").innerHTML = "Wins: " + wins++;
+        
+        //console.log("userGuess === computerGuess");
+        
     }
     else if (userGuess !== computerGuess) {
-        return("Remaining guesses: ", remainingGuesses--);
+        remainingGuesses--;
+        document.getElementById("myGuess").innerHTML = "My Guess: " + userGuess;
+        document.getElementById("answer").innerHTML = "Answer: " + computerGuess;
+        document.getElementById("guesses remaining").innerHTML = "Remaining guesses: " + remainingGuesses;
+        document.getElementById("guesses").innerHTML = "Guesses: " + guesses++;
+        document.getElementById("losses").innerHTML = "Losses: " + losses++;
+        
+        //console.log("userGuess !== computerGuess");
 
-    } else if (remainingGuesses = 0) {
-        return("Game over!");
+    };
+    
+    if (remainingGuesses === 0) {
+        document.getElementById("guesses remaining").innerHTML = "Game over, refresh page";
+
+        //console.log("remainingGuesses === 0");
     }
    
 }
    
 
-    return ("Wins: ", wins++);
-    return ("Losses: ", losses--);
-    return ("Guesses: ", guesses++);
-    return ("Remaining guesses: ", remainingGuesses--);
+    //document.write ("Wins: ", wins++);
+    //document.write ("Losses: ", losses--);
+    //document.write ("Guesses: ", guesses++);
+    //document.write ("Remaining guesses: ", remainingGuesses--);
 
-    var winsElement = document.getElementById("wins");
-    var lossesElement = document.getElementById("losses");
-    var guessesSoFar = document.getElementById("guesses");
-    var guessesRemaining = document.getElementById("guesses remaining")
+    //var winsElement = document.getElementById("wins").innerHTML
+    //var lossesElement = document.getElementById("losses");
+    //var guessesSoFar = document.getElementById("guesses");
+    //var guessesRemaining = document.getElementById("guesses remaining")
 
